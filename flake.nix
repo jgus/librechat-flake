@@ -53,9 +53,9 @@
 
           makeWrapperArgs = [ "--set-default LIBRECHAT_LOG_DIR ./logs" ];
 
-          # npmConfigHook only patches the root node_modules.
+          # npmConfigHook patches only the root node_modules; nested workspace installs (client/, packages/*) need patching too.
           postConfigure = ''
-            patchShebangs client/node_modules
+            patchShebangs client/node_modules packages
           '';
 
           # The api/ and client/ workspace dist dirs vanish after the build (symlink churn); copy them back.
