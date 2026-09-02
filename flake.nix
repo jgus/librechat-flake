@@ -86,7 +86,6 @@
         update-branches = flake-lib.lib.mkUpdateBranches {
           inherit pkgs source;
           pinSchema = "github-npm";
-          excludePrereleases = true; # upstream tags X.Y.Z-rcN; track stable only
         };
       in
       {
